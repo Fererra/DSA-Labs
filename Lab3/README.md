@@ -32,8 +32,8 @@ gcc -Iheaders src/utils/matrix_utils.c src/output.c -o output.exe
 ## Графічне представлення
 
 ### Орієнтований граф
-![Directed graph](https://github.com/user-attachments/assets/29b4a2c5-4b75-4fd3-9707-cd19968751cd)
-
+![Directed graph](https://github.com/user-attachments/assets/b2a3ebc0-ab98-484f-adfc-f1fbc0a44274)
 
 ### Неорієнтований граф
-![Undirected graph](https://github.com/user-attachments/assets/45b1d3be-f545-40fb-b726-6ab858fb6a35)
+![Undirected graph](https://github.com/user-attachments/assets/c09d3fed-0c17-41ad-8800-f764f360e033)
+
