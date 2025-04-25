@@ -22,13 +22,14 @@ void arrow(HDC hdc, float fi, int px, int py) {
 }
 
 void drawLoop(HDC hdc, int x, int y, int isDirected) {
-    Ellipse(hdc, x - 40, y - 40, x, y);
-    if (isDirected) arrow(hdc, 280, x, y - 16);
+    int indent = radius * 2.5;
+    Ellipse(hdc, x - indent, y - indent, x, y);
+    if (isDirected) arrow(hdc, 280, x, y - radius);
 }
 
 void drawStraightEdge(HDC hdc, int x1, int y1, int x2, int y2, int isDirected) {
-    int dx = abs(x1 - x2);
-    int dy = abs(y1 - y2);
+    double dx = abs(x1 - x2);
+    double dy = abs(y1 - y2);
 
     double fi, tanFi;
     int ax, ay;
