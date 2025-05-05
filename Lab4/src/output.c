@@ -35,8 +35,8 @@ void directedGraphInfo() {
   }
 
   printf("\nList of vertices\n");
-  printVertexGroup("Isolated", isolatedVertices, isolatedCount);
   printVertexGroup("Pendant", pendantVertices, pendantCount);
+  printVertexGroup("Isolated", isolatedVertices, isolatedCount);
 
   freeIntMatrix(Adir);
   free(outdegrees);
@@ -71,8 +71,8 @@ void undirectedGraphInfo() {
   }
 
   printf("\nList of vertices\n");
-  printVertexGroup("Isolated", isolatedVertices, isolatedCount);
   printVertexGroup("Pendant", pendantVertices, pendantCount);
+  printVertexGroup("Isolated", isolatedVertices, isolatedCount);
 
   
   freeIntMatrix(Aundir);
@@ -119,8 +119,8 @@ void modifiedGraphInfo() {
   }
 
   printf("\nList of vertices\n");
-  printVertexGroup("Isolated", isolatedVertices, isolatedCount);
   printVertexGroup("Pendant", pendantVertices, pendantCount);
+  printVertexGroup("Isolated", isolatedVertices, isolatedCount);
 
   printf("\nMatrix A^2:\n");
   printMatrix(A2);
