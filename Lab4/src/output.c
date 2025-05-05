@@ -143,7 +143,7 @@ void modifiedGraphInfo() {
   printf("\nStrongly Connected Components\n");
   printComponents(stronglyConnectedComponents, componentCount);
 
-  printf("\n**Condensation Graph Adjacency Matrix**\n");
+  printf("\nCondensation Graph Adjacency Matrix\n");
   printCondensationMatrix(Acondensation, componentCount);
 
   freeIntMatrix(Adir);
