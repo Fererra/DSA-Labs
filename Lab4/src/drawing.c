@@ -316,7 +316,7 @@ void drawCondensationGraph(HWND hWnd, HDC hdc, PAINTSTRUCT ps, double K, int isD
     int **coords = getCoords(START);
     int centerX = findAverage(START, coords[0]);
     int centerY = findAverage(START, coords[1]); 
-    int **matrix = getCondensationAdjacencyByK(K, &componentCount);
+    int **matrix = generateAcondensationByK(K, &componentCount);
 
     HPEN KPen = CreatePen(PS_SOLID, 1, RGB(20, 20, 5));
     HPEN BPen = CreatePen(PS_SOLID, 2, RGB(50, 0, 255));

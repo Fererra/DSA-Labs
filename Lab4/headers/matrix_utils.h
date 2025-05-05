@@ -28,7 +28,7 @@ int **computeStrongConnectivity(int**);
 int **computeStronglyConnectedComponents(int**, int*);
 void printComponents(int**, int);
 int **generateAcondensation(int**, int**, int);
-int **getCondensationAdjacencyByK(double, int*);
+int **generateAcondensationByK(double, int*);
 void printCondensationMatrix(int**, int);
 
 #endif

@@ -453,7 +453,7 @@ void printCondensationMatrix(int **matrix, int size) {
   }
 }
 
-int **getCondensationAdjacencyByK(double K, int *componentCount) {
+int **generateAcondensationByK(double K, int *componentCount) {
   int **Adir = generateAdir(K);
   int **reachabilityMatrix = computeReachability(Adir);
   int **strongConnectivityMatrix = computeStrongConnectivity(reachabilityMatrix);
