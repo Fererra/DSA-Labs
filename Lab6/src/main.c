@@ -97,7 +97,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT messg, WPARAM wParam, LPARAM lParam) {
 
         case WM_COMMAND:
             if (LOWORD(wParam) == 1) {
-                printf("we are here %d\n", step);
                 hdc = GetDC(hWnd);
                 drawPart(hWnd, hdc, ps, &step);
                 if (step == mstSize) DestroyWindow(GetDlgItem(hWnd, 1));

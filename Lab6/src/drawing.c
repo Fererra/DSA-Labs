@@ -324,7 +324,6 @@ void drawGraph(HWND hWnd, HDC hdc, PAINTSTRUCT ps) {
 
 void drawPart(HWND hWnd, HDC hdc, PAINTSTRUCT ps, int *step) {
     if (*step > mstSize) return;
-    printf("we are here %d\n", *step);
 
     int u = mstEdges[*step - 1].u;
     int v = mstEdges[*step - 1].v;
