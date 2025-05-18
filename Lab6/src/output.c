@@ -32,6 +32,7 @@ void printInfo() {
 
   freeIntMatrix(Aundir);
   freeIntMatrix(W);
+  freeGraph(g);
 }
 
 int main() {

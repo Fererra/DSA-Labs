@@ -40,3 +40,23 @@ void addEdge(Graph *graph, int src, int dest, int weight) {
         v->edges = e;
     }
 }
+
+void freeGraph(Graph *g) {
+    if (!g) return;
+
+    Vertex *v = g->vertices;
+    while (v) {
+        Edge *e = v->edges;
+        while (e) {
+            Edge *tempEdge = e;
+            e = e->next;
+            free(tempEdge);
+        }
+
+        Vertex *tempVertex = v;
+        v = v->next;
+        free(tempVertex);
+    }
+
+    free(g);
+}

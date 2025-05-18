@@ -20,5 +20,6 @@ typedef struct Graph {
 Graph *createGraph();
 void addVertex(Graph*, int);
 void addEdge(Graph*, int, int, int);
+void freeGraph(Graph*);
 
 #endif
