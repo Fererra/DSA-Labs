@@ -21,9 +21,9 @@ int findAverage(int start, int *arr) {
 int **getCoords(int start) {
   int n = N;
 
-  int **coords = malloc(2 * sizeof(int*));
+  int **coords = calloc(2, sizeof(int*));
   for (int i = 0; i < 2; i++) {
-      coords[i] = malloc(n * sizeof(int));
+      coords[i] = calloc(n, sizeof(int));
   }
 
   int step = 200;

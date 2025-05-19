@@ -12,7 +12,7 @@ void drawTopBottomArc(HDC, int, int, int, int, int);
 void drawCurvedEdge(HDC, int, int, int, int, int);
 void drawEdge(HDC, int, int, int, int, int, int, int, int, int);
 void drawVertex(HDC, int, int, int);
-void drawGraph(HWND, HDC, PAINTSTRUCT);
+void drawGraph(HWND, HDC, PAINTSTRUCT, Graph*);
 void drawPart(HWND, HDC, PAINTSTRUCT, int*);
 
 #endif

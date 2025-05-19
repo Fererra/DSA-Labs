@@ -16,7 +16,7 @@ extern int mstSize;
 int edgeCompare(const void*, const void*);
 int find(int[], int);
 void unite(int[], int[], int, int);
-void prepareMST();
+Graph* prepareMST();
 int kruskal(Graph*);
 
 #endif

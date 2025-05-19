@@ -29,15 +29,17 @@ void addEdge(Graph *graph, int src, int dest, int weight) {
         v->edges = e;
     }
 
-    v = graph->vertices;
-    while (v && v->id != dest) v = v->next;
-    if (v) {
-        Edge *e = (Edge *)malloc(sizeof(Edge));
-        e->src = dest;
-        e->dest = src;
-        e->weight = weight;
-        e->next = v->edges;
-        v->edges = e;
+    if (src != dest) {
+        v = graph->vertices;
+        while (v && v->id != dest) v = v->next;
+        if (v) {
+            Edge *e = (Edge *)malloc(sizeof(Edge));
+            e->src = dest;
+            e->dest = src;
+            e->weight = weight;
+            e->next = v->edges;
+            v->edges = e;
+        }
     }
 }
 

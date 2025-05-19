@@ -279,46 +279,47 @@ void drawEdge(HDC hdc, int i, int j, int x1, int y1, int x2, int y2, int centerX
     }
 }
 
-void drawGraph(HWND hWnd, HDC hdc, PAINTSTRUCT ps) {
-    int n = N;
+void drawGraph(HWND hWnd, HDC hdc, PAINTSTRUCT ps, Graph *graph) {
+    if (!graph) return;
+
+    int n = graph->vertexCount;
     int **coords = getCoords(START);
     int centerX = findAverage(START, coords[0]);
-    int centerY = findAverage(START, coords[1]); 
-
-    int **Aundir = generateAundir();
-    int **weightMatrix = generateW(Aundir);
+    int centerY = findAverage(START, coords[1]);
 
     HPEN KPen = CreatePen(PS_SOLID, 1, RGB(20, 20, 5));
     HPEN BPen = CreatePen(PS_SOLID, 2, RGB(50, 0, 255));
-
     SelectObject(hdc, KPen);
 
-    for (int i = 0; i < n; i++) {
-        if (Aundir[i][i] == 1) {
-            drawLoop(hdc, coords[0][i], coords[1][i], weightMatrix[i][i]);
-        }
-    }
-
-    for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (Aundir[i][j] == 1) {
-                int x1 = coords[0][i];
-                int y1 = coords[1][i];
-                int x2 = coords[0][j];
-                int y2 = coords[1][j];
-
-                drawEdge(hdc, i, j, x1, y1, x2, y2, centerX, centerY, weightMatrix[i][j]);
+    Vertex *v = graph->vertices;
+    while (v) {
+        Edge *e = v->edges;
+        while (e) {
+            if (v->id == e->dest) {
+                int x = coords[0][v->id];
+                int y = coords[1][v->id];
+                drawLoop(hdc, x, y, e->weight);
+            } else if (v->id < e->dest) {
+                int x1 = coords[0][v->id];
+                int y1 = coords[1][v->id];
+                int x2 = coords[0][e->dest];
+                int y2 = coords[1][e->dest];
+                drawEdge(hdc, v->id, e->dest, x1, y1, x2, y2, centerX, centerY, e->weight);
             }
+            e = e->next;
         }
+        v = v->next;
     }
 
     SelectObject(hdc, BPen);
-    for (int j = 0; j < n; j++) {
-        int x = coords[0][j];
-        int y = coords[1][j];
-        drawVertex(hdc, x, y, j);
+    v = graph->vertices;
+    while (v) {
+        int x = coords[0][v->id];
+        int y = coords[1][v->id];
+        drawVertex(hdc, x, y, v->id);
+        v = v->next;
     }
-    
+
     freeCoords(coords);
 }
 
@@ -337,13 +338,12 @@ void drawPart(HWND hWnd, HDC hdc, PAINTSTRUCT ps, int *step) {
     int centerX = findAverage(START, coords[0]);
     int centerY = findAverage(START, coords[1]);
 
-    HPEN stepPen = CreatePen(PS_SOLID, 3, RGB(0, 200, 0));
-    SelectObject(hdc, stepPen);
+    HPEN GPen = CreatePen(PS_SOLID, 3, RGB(0, 200, 0));
+    SelectObject(hdc, GPen);
 
     drawEdge(hdc, u, v, x1, y1, x2, y2, centerX, centerY, w);
     drawVertex(hdc, x1, y1, u);
     drawVertex(hdc, x2, y2, v);
 
-    DeleteObject(stepPen);
     freeCoords(coords);
 }

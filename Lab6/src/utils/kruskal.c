@@ -32,7 +32,7 @@ void unite(int parent[], int rank[], int x, int y) {
     }
 }
 
-void prepareMST() {
+Graph* prepareMST() {
     Graph *g = createGraph();
     for (int i = 0; i < N; i++) addVertex(g, i);
 
@@ -40,7 +40,7 @@ void prepareMST() {
     int **W = generateW(Aundir);
 
     for (int i = 0; i < N; i++)
-        for (int j = i + 1; j < N; j++)
+        for (int j = i; j < N; j++)
             if (Aundir[i][j])
                 addEdge(g, i, j, W[i][j]);
 
@@ -81,6 +81,8 @@ void prepareMST() {
     }
 
     free(allEdges);
+
+    return g;
 }
 
 int kruskal(Graph *graph) {

@@ -7,7 +7,7 @@
 #define HEIGHT 825           
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
-void drawGraph(HWND, HDC, PAINTSTRUCT);
+void drawGraph(HWND, HDC, PAINTSTRUCT, Graph*);
 void drawPart(HWND, HDC, PAINTSTRUCT, int*);
 
 char ProgName[] = "Lab 6";
@@ -74,6 +74,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 LRESULT CALLBACK WndProc(HWND hWnd, UINT messg, WPARAM wParam, LPARAM lParam) {
     static int step = 1;
     static int initialized = 0;
+    static Graph *g = NULL;
 
     HDC hdc;
     PAINTSTRUCT ps;
@@ -85,12 +86,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT messg, WPARAM wParam, LPARAM lParam) {
             hdc = BeginPaint(hWnd, &ps);
 
             FillRect(hdc, &rect, WHITE_BRUSH);
-            drawGraph(hWnd, hdc, ps);
-
+            
             if (!initialized) {
-                prepareMST();
-                initialized = 1;
+              g = prepareMST();
+              initialized = 1;
             }
+
+            drawGraph(hWnd, hdc, ps, g);
 
             EndPaint(hWnd, &ps);
             break;
