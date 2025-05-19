@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "../headers/matrix_utils.h"
-
 #include "../headers/dataStructures.h"
 #include "../headers/kruskal.h"
 
