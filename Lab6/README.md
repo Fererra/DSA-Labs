@@ -34,17 +34,17 @@ gcc -Iheaders src/output.c src/utils/matrix_utils.c src/utils/dataStructures.c s
 
 ## Матриця ваг ребер
 
-![Weight matrix](https://github.com/user-attachments/assets/45367e00-ebd1-42d3-bb15-4624e07cd6fd)
+![Weight matrix](https://github.com/user-attachments/assets/5b111bc2-1779-489a-b576-4952cbbb1355)
 
 ## Графічне представлення
 
 ### Неорієнтований граф
 
-![Undirected graph](https://github.com/user-attachments/assets/68b97025-702a-41f6-b3e5-d60f9a05b3fc)
+![Undirected graph](https://github.com/user-attachments/assets/e5f7e290-8797-4361-bd62-fa9b03db3c2d)
 
 ### Мінімальний кістяк
 
-![MST](https://github.com/user-attachments/assets/b4066e8d-3b69-463d-8ffd-60088f3279cf)
+![MST](https://github.com/user-attachments/assets/017dd97f-1c72-461a-bd19-58ea077ef5f9)
 
 ## Сума ваг ребер знайденого мiнiмального кiстяка
 
